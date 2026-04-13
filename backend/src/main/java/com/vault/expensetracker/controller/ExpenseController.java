@@ -9,25 +9,22 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/expenses")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173") // Updated to Vite Port
 public class ExpenseController {
 
     @Autowired
     private ExpenseService expenseService;
 
-    // GET /api/expenses — returns all expenses
     @GetMapping
     public List<Expense> getAllExpenses() {
         return expenseService.getAllExpenses();
     }
 
-    // POST /api/expenses — saves a new expense
     @PostMapping
     public Expense addExpense(@RequestBody Expense expense) {
         return expenseService.addExpense(expense);
     }
 
-    // DELETE /api/expenses/{id} — deletes by ID
     @DeleteMapping("/{id}")
     public void deleteExpense(@PathVariable Long id) {
         expenseService.deleteExpense(id);

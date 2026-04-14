@@ -1,15 +1,15 @@
 package com.vault.expensetracker.controller;
 
-import com.vault.expensetracker.model.Expense;
-import com.vault.expensetracker.service.ExpenseService;
+import com.vault.expensetracker.model.Expense;           // Fixes red line under 'Expense'
+import com.vault.expensetracker.service.ExpenseService;   // Fixes red line under 'ExpenseService'
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import java.util.List;                                   // Fixes red line under 'List'
 
 @RestController
 @RequestMapping("/api/expenses")
-@CrossOrigin(origins = "http://localhost:5173") // Updated to Vite Port
+// CrossOrigin is already handled globally in your SecurityConfig, 
+// so you can technically remove this line to keep it clean.
 public class ExpenseController {
 
     @Autowired
